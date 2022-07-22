@@ -20,7 +20,8 @@
              :migration-dir "migrations"
              :db (or (System/getenv "DATABASE_URL") "postgresql://localhost:5432/sample")}
   :ring {:handler sample.handler/app
-         :init sample.handler/init}
+         :init sample.handler/init
+         :port    ~(System/getenv "PORT")}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [kerodon "0.9.1"]
